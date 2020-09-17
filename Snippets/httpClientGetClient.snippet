@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create method for getting HttpClient</Title>
+			<Shortcut>httpgc</Shortcut>
+			<Description>Code snippet for generating method that returns HttpClient</Description>
+			<Author>Lucas Glass</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>MyCustomView</ID>
+					<ToolTip>The Custom View in the shared project</ToolTip>
+					<Default>MyCustomView</Default>
+				</Literal>
+				
+			</Declarations>
+			<Code Language="CSharp">
+				<![CDATA[
+                
+                public const string defaultUri = "https://localhost:5001/";
+        public static CookieContainer Cookies = new CookieContainer();
+        HttpClient GetClient()
+        {
+            HttpClient _client;
+            _client = new HttpClient(new HttpClientHandler() { CookieContainer = Cookies })
+            {
+                BaseAddress = new Uri(defaultUri),
+            };
+            _client.DefaultRequestHeaders.Accept.Clear();
+            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _client.Timeout = TimeSpan.FromMilliseconds(10000);
+
+            return _client;
+        }
+                $end$]]>
+			</Code>
+			<Imports>
+				<Import>
+					<Namespace>System.Net</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Net.Http</Namespace>
+				</Import>
+				<Import>
+					<Namespace>System.Net.Http.Headers</Namespace>
+				</Import>
+			</Imports>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
