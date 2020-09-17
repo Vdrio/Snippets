@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Razor Button</Title>
+			<Shortcut>rzbtn</Shortcut>
+			<Description>Code snippet for generating Razor Button</Description>
+			<Author>Lucas Glass</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>ButtonText</ID>
+					<ToolTip>The text in the button</ToolTip>
+					<Default>Click me</Default>
+				</Literal>
+
+			</Declarations>
+			<Code Language="CSharp">
+				<![CDATA[
+                
+                <div class="buttonTablet  myButton"  style=" background-color: #e68400;">$ButtonText$</div>
+				
+				<style>
+				.myButton {
+    border-radius: .2rem;
+    background-color: #065594;
+    width: 6rem;
+    height: 1.7rem;
+    color: #fff;
+    font-size: .9rem;
+    margin-top: 2rem;
+    margin-left: 15%;
+    padding-top: .2rem;
+    padding-left: .5rem;
+}
+
+@@media only screen and (max-width: 1136px) {
+.buttonTablet{
+border-radius: .2rem;
+        background-color: #065594;
+        width: 6rem;
+        height: 1.7rem;
+        color: #fff;
+        font-size: .9rem;
+        margin-top: 2rem;
+        margin-left: 15%;
+        padding-top: .2rem;
+        padding-left: .5rem;
+}
+}
+
+				</style>
+				
+                $end$]]>
+			</Code>
+
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
