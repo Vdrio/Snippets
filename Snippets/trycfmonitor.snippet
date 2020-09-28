@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Create try catch finally block with monitor</Title>
+			<Shortcut>trycfm</Shortcut>
+			<Description>Code snippet for generating web api method for post</Description>
+			<Author>Lucas Glass</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>MonitorName</ID>
+					<ToolTip>The object acting as the monitor</ToolTip>
+					<Default>monitor</Default>
+				</Literal>
+
+			</Declarations>
+			<Code Language="csharp">
+				<![CDATA[
+               
+		Monitor.Enter($MonitorName$);
+        try
+		{
+		
+		}
+		catch(Exception ex)
+		{
+		
+		}
+		finally
+		{
+			Monitor.Exit($MonitorName$);
+		}
+                $end$]]>
+			</Code>
+			<Imports>
+				<Import>
+					<Namespace>System.Threading</Namespace>
+				</Import>
+			</Imports>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
